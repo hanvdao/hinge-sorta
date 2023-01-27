@@ -1,11 +1,11 @@
-import { palette } from './palette';
+import { palette } from "./palette";
 export default Themes = {
   light: {
     bg: palette.lightGray,
     bgSecondary: palette.white,
     text: palette.black,
     textSecondary: palette.white,
-    statusBar: 'dark-content',
+    statusBar: "dark-content",
     navigation: palette.black,
     shadows: {
       shadowColor: palette.black,
@@ -19,7 +19,7 @@ export default Themes = {
     bgSecondary: palette.lighterBlack,
     text: palette.white,
     textSecondary: palette.black,
-    statusBar: 'light-content',
+    statusBar: "light-content",
     navigation: palette.white,
     shadows: {
       shadowColor: palette.black,

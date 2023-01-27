@@ -1,42 +1,33 @@
-import AppLoading from 'expo-app-loading';
-import { StyleSheet, Text, View, StatusBar } from 'react-native';
-import { useFonts } from 'expo-font';
-import { Themes } from './assets/Themes';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Footer } from './app/components'
+import AppLoading from "expo-app-loading";
+import { StyleSheet, Text, View, StatusBar, Dimensions } from "react-native";
+import { useFonts } from "expo-font";
+import { Themes } from "./assets/Themes";
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Footer, ProfileCard, Header, AudioBox } from "./app/components";
 
 /* This is the home screen used for the navigation system, we'll
- * learn more about in the coming weeks! 
+ * learn more about in the coming weeks!
  */
 function HomeScreen() {
-
   /* insert your code here */
 
   return (
     <View style={styles.container}>
-    <Text
-      style={{
-        fontFamily: 'Sydney', // test to see if the font is loaded, feel free to remove this
-      }}>
-      Open up App.js to start working on your app!
-    </Text>
-    <Text
-      style={{
-        fontFamily: 'Sydney-Bold', // test to see if the font is loaded, feel free to remove this
-      }}>
-      ~Good luck~
-    </Text>
-  </View>
+      <Header />
+      <ProfileCard />
+      <AudioBox />
+    </View>
   );
 }
 
 const Tab = createBottomTabNavigator();
+const { height, width } = Dimensions.get("window");
 
 export default function App() {
   let [fontsLoaded] = useFonts({
-    Sydney: require('./assets/Fonts/Sydney-Serial-Regular.ttf'),
-    SydneyBold: require('./assets/Fonts/Sydney-Serial-Bold.ttf'),
+    Sydney: require("./assets/Fonts/Sydney-Serial-Regular.ttf"),
+    SydneyBold: require("./assets/Fonts/Sydney-Serial-Bold.ttf"),
   });
   if (!fontsLoaded) return <AppLoading />;
   /* ^Don't mind/edit the code above, it's there to load the font for you! */
@@ -45,9 +36,12 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Tab.Navigator tabBar={Footer} screenOptions={{
-        headerShown: false,
-      }}>
+      <Tab.Navigator
+        tabBar={Footer}
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
         <Tab.Screen name="Home" component={HomeScreen} />
       </Tab.Navigator>
     </NavigationContainer>
@@ -57,8 +51,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: Themes.light.bg,
+    alignItems: "center",
+    paddingVertical: height * 0.05,
   },
 });
