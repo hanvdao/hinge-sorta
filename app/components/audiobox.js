@@ -25,26 +25,34 @@ export default function AudioBox() {
 const styles = StyleSheet.create({
   headerContainer: {
     flexDirection: "column",
-    alignItems: "center",
     justifyContent: "space-around",
-    width: width,
-    height: height * 0.1,
+    backgroundColor: Themes.light.bgSecondary,
+    ...Themes.light.shadows,
+    marginVertical: 20,
+    width: width * 0.8,
+    borderRadius: 15,
+    paddingVertical: 25,
+    paddingHorizontal: 20,
   },
   playerIcon: {
-    height: height * 0.05,
-    width: width * 0.1,
     resizeMode: "contain",
+    width: PixelRatio.getPixelSizeForLayoutSize("20"),
+    height: PixelRatio.getPixelSizeForLayoutSize("20"),
   },
   audioWaveIcon: {
-    width: width * 0.5,
+    width: "75%",
     resizeMode: "contain",
   },
   headerText: {
     fontFamily: "Sydney",
-    fontSize: 30,
+    fontSize: PixelRatio.getFontScale() * height * 0.03,
   },
   audioPlayerContainer: {
     flexDirection: "row",
     alignItems: "center",
+    justifyContent: "space-around",
+    width: "100%",
+    height: height * 0.05,
+    marginTop: 20,
   },
 });
